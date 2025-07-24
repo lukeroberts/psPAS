@@ -252,7 +252,13 @@
 		'Publish-PASDiscoveredLocalAccount',
 		'Add-PASDiscoveredLocalAccount',
 		'Clear-PASDiscoveredLocalAccount',
-		'Remove-PASDiscoveredLocalAccount'
+		'Remove-PASDiscoveredLocalAccount',
+		'Add-PASAccountDependentLink',
+		'Add-PASAccountDependent',
+		'Get-PASAccountDependent',
+		'Remove-PASAccountDependent',
+		'Remove-PASAccountDependentLink',
+		'Set-PASAccountDependent'
 	)
 
 	#AliasesToExport   = @()
