@@ -3,6 +3,7 @@ function Add-PASAccountDependentLink {
     [CmdletBinding()]
     param(
         [Parameter(Mandatory = $true, ValueFromPipelineByPropertyName = $true)]
+        [Alias('id')]
         [string]$AccountID,
         [Parameter(Mandatory = $true, ValueFromPipelineByPropertyName = $true)]
         [string]$DependentAccountID,
