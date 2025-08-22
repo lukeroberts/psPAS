@@ -12,7 +12,7 @@ function Remove-PASAccountDependent {
         Assert-VersionRequirement -RequiredVersion 14.6
     }
     PROCESS {
-        $uri = "$($psPASSession.BaseURI)/api/accounts/$AccountID/account-dependents/$DependentAccountID"
+        $uri = "$($psPASSession.ApiURI)/api/accounts/$AccountID/account-dependents/$DependentAccountID"
 
         if ($PSCmdlet.ShouldProcess($DependentAccountID, 'Delete Dependent Account')) {
             Invoke-PASRestMethod -Uri $uri -Method DELETE

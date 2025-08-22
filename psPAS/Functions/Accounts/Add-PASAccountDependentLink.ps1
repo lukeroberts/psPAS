@@ -17,7 +17,7 @@ function Add-PASAccountDependentLink {
     }
     PROCESS {
         $body = @{ index = $Index; accountId = $LinkedAccountID } | ConvertTo-Json
-        $uri = "$($psPASSession.BaseURI)/api/accounts/$AccountID/account-dependents/$DependentAccountID/link-accounts"
+        $uri = "$($psPASSession.ApiURI)/api/accounts/$AccountID/account-dependents/$DependentAccountID/link-accounts"
         
         Invoke-PASRestMethod -Uri $uri -Method POST -Body $body
     }

@@ -33,21 +33,21 @@ function Get-PASAccountDependent {
             $queryParams = $PSBoundParameters | Get-PASParameter -ParametersToRemove AccountID
             $queryString = $queryParams | ConvertTo-QueryString
 
-            $uri = "$($psPASSession.BaseURI)/api/accounts/$AccountID/account-dependents"
+            $uri = "$($psPASSession.ApiURI)/api/accounts/$AccountID/account-dependents"
             if ($null -ne $queryString) { $uri += "?$queryString" }
 
             $result = Invoke-PASRestMethod -Uri $uri -Method GET
-            if ($result) { $result.body.accountDependents }
+            if ($result) { $result.accountDependents }
         } 
         elseif ($PSCmdlet.ParameterSetName -eq 'ById') {
             $queryParams = $PSBoundParameters | Get-PASParameter -ParametersToRemove AccountID, DependentAccountID
             $queryString = $queryParams | ConvertTo-QueryString
 
-            $uri = "$($psPASSession.BaseURI)/api/accounts/$AccountID/account-dependents/$DependentAccountID"
+            $uri = "$($psPASSession.ApiURI)/api/accounts/$AccountID/account-dependents/$DependentAccountID"
             if ($null -ne $queryString) { $uri += "?$queryString" }
 
             $result = Invoke-PASRestMethod -Uri $uri -Method GET
-            if ($result) { $result.body }
+            if ($result) { $result }
         }
     }
     END {}

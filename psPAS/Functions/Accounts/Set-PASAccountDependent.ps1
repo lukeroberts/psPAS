@@ -22,7 +22,7 @@ function Set-PASAccountDependent {
         Assert-VersionRequirement -RequiredVersion 14.6
     }
     PROCESS {
-        $uri = "$($psPASSession.BaseURI)/api/accounts/$AccountID/account-dependents/$DependentAccountID"
+        $uri = "$($psPASSession.ApiURI)/api/accounts/$AccountID/account-dependents/$DependentAccountID"
         
         $body = @{
             name = $Name
@@ -34,7 +34,7 @@ function Set-PASAccountDependent {
         $jsonBody = $body | ConvertTo-Json -Depth 5
         
         $result = Invoke-PASRestMethod -Uri $uri -Method PUT -Body $jsonBody
-        if ($result) { $result.body }
+        if ($result) { $result }
     }
     END {}
 }
